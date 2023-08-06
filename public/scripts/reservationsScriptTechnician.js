@@ -95,8 +95,8 @@ for (var i=1; i < seats.length; i+=1) {
     let times = seats[i].children
 
     for (let j=1; j < times.length; j+=1) {
-        
-        times[j].className = "unReserved";
+        if (times[j].className !== "selected") 
+                times[j].className = "unReserved";
     }
 }
 }
@@ -505,6 +505,7 @@ document.getElementById("resultsContainer").innerHTML = ""
 // submit button
 document.getElementById("submitBtn").addEventListener("click", (e) => {
 // add all selected to reservations list
+updateAll();
 submitReservation();
 
 });
@@ -819,4 +820,4 @@ document.getElementById("aboutPage").addEventListener("click", (e) => {
 // function that runs every 5 seconds
 setInterval(() => {
     updateAll();
-}, 5000);
+}, 50);

@@ -54,55 +54,57 @@ function updateReservationList() {
         .then(res => res.json())
         .then(data => {
             data.forEach(reservation => { 
-                let listItem = document.createElement("div");
-                let date = document.createElement("p");
-                let lab = document.createElement("p");
-                let seat = document.createElement("p");
-                let slots = document.createElement("div");
+                if(reservation.isAnonymous == false) {
+                    let listItem = document.createElement("div");
+                    let date = document.createElement("p");
+                    let lab = document.createElement("p");
+                    let seat = document.createElement("p");
+                    let slots = document.createElement("div");
 
-                date.textContent = "Date: " + String(reservation.date).substring(0, 10)
-                lab.textContent = "Lab: " + String(reservation.lab)
-                seat.textContent = "Seat: " + String(reservation.seat)
+                    date.textContent = "Date: " + String(reservation.date).substring(0, 10)
+                    lab.textContent = "Lab: " + String(reservation.lab)
+                    seat.textContent = "Seat: " + String(reservation.seat)
 
-                listItem.setAttribute("class", "#unhighlighted");
-                                
-                reservation.slots.forEach(slot => {
-                    let newSlot = document.createElement("p");
-                    newSlot.textContent = slot.substring(0, slot.length - 2) + ":" + slot.substring(slot.length - 2, slot.length);
-                    
-                    if (reservation.slots.indexOf(slot) != reservation.slots.length - 1) {
-                        newSlot.textContent = newSlot.textContent + ", ";
+                    listItem.setAttribute("class", "#unhighlighted");
+                                    
+                    reservation.slots.forEach(slot => {
+                        let newSlot = document.createElement("p");
+                        newSlot.textContent = slot.substring(0, slot.length - 2) + ":" + slot.substring(slot.length - 2, slot.length);
+                        
+                        if (reservation.slots.indexOf(slot) != reservation.slots.length - 1) {
+                            newSlot.textContent = newSlot.textContent + ", ";
+                        }
+                        slots.appendChild(newSlot)
+                    })
+
+                    listItem.appendChild(date)
+                    listItem.appendChild(lab)
+                    listItem.appendChild(seat)
+                    listItem.appendChild(slots)
+
+                    listItem.style.marginBottom = "10px";
+
+                    listItem.style.cursor = "pointer";
+
+                    const queryParams = new URLSearchParams({
+                        date: String(reservation.date).substring(0, 10),
+                        lab: String(reservation.lab)
+                    });
+
+                    if(currentRole == "student") {
+                        listItem.onclick = function () {
+                            window.location.href = "/reservation-student?" + queryParams.toString();
+                        }
                     }
-                    slots.appendChild(newSlot)
-                })
-
-                listItem.appendChild(date)
-                listItem.appendChild(lab)
-                listItem.appendChild(seat)
-                listItem.appendChild(slots)
-
-                listItem.style.marginBottom = "10px";
-
-                listItem.style.cursor = "pointer";
-
-                const queryParams = new URLSearchParams({
-                    date: String(reservation.date).substring(0, 10),
-                    lab: String(reservation.lab)
-                });
-
-                if(currentRole == "student") {
-                    listItem.onclick = function () {
-                        window.location.href = "/reservation-student?" + queryParams.toString();
+                    else if(currentRole == "technician") {
+                        listItem.onclick = function () {
+                            window.location.href = "/reservation-technician?" + queryParams.toString();
+                        }
                     }
-                }
-                else if(currentRole == "technician") {
-                    listItem.onclick = function () {
-                        window.location.href = "/reservation-technician?" + queryParams.toString();
-                    }
-                }
 
-                document.getElementById("reservationsContainer").append(listItem);
+                    document.getElementById("reservationsContainer").append(listItem);
                 
+                }
             })
         })
 }

@@ -92,8 +92,9 @@ function resetSlots() {
         let times = seats[i].children
     
         for (let j=1; j < times.length; j+=1) {
-            
-            times[j].className = "unReserved";
+            // if seat is selected ignore it
+            if (times[j].className !== "selected") 
+                times[j].className = "unReserved";
         }
     }
 }
@@ -452,6 +453,7 @@ document.getElementById("closeSearchDialog").addEventListener("click", () => {
 // submit button
 document.getElementById("submitBtn").addEventListener("click", (e) => {
     // add all selected to reservations list
+    updateAll();
     submitReservation();
     
 });
@@ -648,6 +650,5 @@ document.getElementById("aboutPage").addEventListener("click", (e) => {
 
 // function that runs every 5 seconds
 setInterval(() => {
-
     updateAll();
-}, 60000);
+}, 50);
