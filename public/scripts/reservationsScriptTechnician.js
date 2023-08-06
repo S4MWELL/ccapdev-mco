@@ -820,4 +820,4 @@ document.getElementById("aboutPage").addEventListener("click", (e) => {
 // function that runs every 5 seconds
 setInterval(() => {
     updateAll();
-}, 50);
+}, 2000);
