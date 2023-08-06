@@ -1,40 +1,55 @@
 [{
-"email": "aaron_jardenil@dlsu.edu.ph",
-  "password": "315",
-  "name": "Aaron Jardenil",
-  "description": "Former Philadelphia police officer who works for Gus—and, on occasion, Saul—as a private investigator, head of security, cleaner, and hit man.",
+  "_id": {
+    "$oid": "64cfe8c76eaabab3a2ce65a6"
+  },
+  "email": "michael_stevens@dlsu.edu.ph",
+  "password": "$2b$10$n9vn2tzjh69WEPFoU9SiOusUU9mTsZXtRP6qScJ3nj0Lsq1a4fEN.",
+  "name": "Michael Stevens",
+  "description": "",
   "role": "student",
   "__v": 0
 },
 {
-  "email": "christian_asturiano@dlsu.edu.ph",
-  "password": "607",
-  "name": "Christian Asturiano",
-  "description": "Overqualified high school chemistry teacher from Albuquerque, New Mexico.",
+  "_id": {
+    "$oid": "64cfe8e66eaabab3a2ce6628"
+  },
+  "email": "michael_jordan@dlsu.edu.ph",
+  "password": "$2b$10$naahbbEokDcEFNwK7nrQf.FtHgmH3b1LDpH441rxcM3CPjs2.STcK",
+  "name": "Michael Jordan",
+  "description": "",
   "role": "student",
   "__v": 0
 },
 {
-  "email": "kyle_francisco@dlsu.edu.ph",
-  "password": "1122",
-  "name": "Kyle Francisco",
-  "description": "Sleazy and unscrupulous lawyer who acts as Walter and Jesse's attorney and provides some of the series' comic relief.",
+  "_id": {
+    "$oid": "64cfe8fb6eaabab3a2ce662b"
+  },
+  "email": "owen_wilson@dlsu.edu.ph",
+  "password": "$2b$10$9WmCoJzUIHza/eR9n6Vfpu64ns5t2QLGjVFSueV6ZNswWhruvLJ1S",
+  "name": "Owen Wilson",
+  "description": "",
   "role": "student",
   "__v": 0
 },
 {
-  "email": "samuel_cheng@dlsu.edu.ph",
-  "password": "1025",
-  "name": "Samuel Cheng",
-  "description": "former chemist, manufacturer, and distributor who worked in Albuquerque, New Mexico, currently residing in Haines, Alaska.",
-  "role": "student",
-  "__v": 0
-},
-{
-  "email": "rafael_calalang@dlsu.edu.ph",
-  "password": "0827",
-  "name": "Rafael Calalang",
-  "description": "Walt and Skyler's brother-in-law and Marie's husband, who works as a U.S. Drug Enforcement Administration (DEA) agent.",
+  "_id": {
+    "$oid": "64cfe9046eaabab3a2ce663a"
+  },
+  "email": "thetechnician@dlsu.edu.ph",
+  "password": "$2b$10$Qwv5WSCEbhSQlBDjkSJeRODZIDpJNHC0HPABOVHYw7T4kGKMROlFK",
+  "name": "The Technician",
+  "description": "",
   "role": "technician",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64cfe9106eaabab3a2ce663c"
+  },
+  "email": "xiao_chua@dlsu.edu.ph",
+  "password": "$2b$10$9cMsGsPIECHTNzsfCPJkMOFPeXIR/pUZku3w.N2CFQM1.HSI3XH/S",
+  "name": "Xiao Chua",
+  "description": "",
+  "role": "student",
   "__v": 0
 }]
