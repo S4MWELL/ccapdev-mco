@@ -234,7 +234,7 @@ app.get('/login', async (req, res) => {
             const isPasswordCorrect = await user.comparePassword(password);
 
             if (isPasswordCorrect) {
-                if (rememberMe == 1) {
+                if (rememberMe === "true") {
                     req.session.user = user.email;
                     req.session.rememberMe = true;
                     req.session.cookie.maxAge = 3 * 7 * 24 * 60 * 60 * 1000; // 3 weeks

@@ -1,7 +1,7 @@
 function login() {
     var email = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var rememberMe = document.getElementById("rememberMe").value;
+    var rememberMe = document.getElementById("rememberMe").checked;
 
     fetch('/login?' + new URLSearchParams({
         email: email,
