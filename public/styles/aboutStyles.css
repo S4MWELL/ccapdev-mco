@@ -52,11 +52,26 @@ body {
     justify-content: space-between;
     height: 34rem;
     width: 25rem;
+    /* center */
+    align-items: center;
+
 
     background-color: var(--bgColordark);
     flex-direction: column;
     border-radius: 5%;
     font-size: 1.7rem;
+  }
+  
+  #goBack {
+    margin-top: 1rem;
+    color: var(--textColor2);
+    font-size: 1.5rem;
+  }
+
+  #goBack:hover {
+    /* underline */
+    cursor: pointer;
+    transform: scale(1.1);
   }
 
 #mainContainer a{

@@ -35,10 +35,25 @@
     }
 
 // BACKEND FUNCTIONS
+
+const urlParams = new URLSearchParams(window.location.search);
+const dateParam = urlParams.get("date");
+const labParam = urlParams.get("lab");
+
+if(dateParam != null) {
+    document.getElementById("dateInput").value = dateParam
+}
+
 let currentLab = 1;
 let currentUser = "";
 let currentDate = document.getElementById("dateInput").value;
 let thisday = year + "-" + month + "-" + day;
+
+if(labParam != null) {
+    document.getElementById("labSelect").value = labParam
+    document.getElementById("labNum").innerText = labParam
+    currentLab = labParam
+}
 
 fetch('/get/currentuser', {method: 'GET'})
     .then(res => res.text())
@@ -630,3 +645,9 @@ document.getElementById("cancelEditBtn").addEventListener("click", (e) => {
 document.getElementById("aboutPage").addEventListener("click", (e) => {
     window.location.href = "/about.html"
 });
+
+// function that runs every 5 seconds
+setInterval(() => {
+
+    updateAll();
+}, 60000);

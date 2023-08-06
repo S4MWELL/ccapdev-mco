@@ -38,10 +38,24 @@ for (var i=1; i < seats.length; i+=1) {
 }
 
 // BACKEND FUNCTIONS
+const urlParams = new URLSearchParams(window.location.search);
+const dateParam = urlParams.get("date");
+const labParam = urlParams.get("lab");
+
+if(dateParam != null) {
+    document.getElementById("dateInput").value = dateParam
+}
+
 let currentLab = 1;
 let currentUser = "";
 let currentDate = document.getElementById("dateInput").value;
 let thisday = year + "-" + month + "-" + day;
+
+if(labParam != null) {
+    document.getElementById("labSelect").value = labParam
+    document.getElementById("labNum").innerText = labParam
+    currentLab = labParam
+}
 
 fetch('/get/currentuser', {method: 'GET'})
 .then(res => res.text())
@@ -786,17 +800,23 @@ function getPhilippineStandardTime() {
 document.getElementById("emailInput")?.addEventListener("keyup", async function (e) {
     // write your code here
     const email = document.getElementById("emailInput").value;
-    const response = await fetch('/email?email=' + email, {method: 'GET'});
     
-    console.log("OIJSDKOJSDF")
-    if (response.status == 200) {
+    if (email.substr(email.length - 12) == "@dlsu.edu.ph" && email.length > 12) {
         document.getElementById("submitBtn").disabled = false;
         document.getElementById("emailInput").style.backgroundColor = 'white';
         document.getElementById("errorMessage").innerText = "";
-    } else if (response.status == 204){
+    } else {
         document.getElementById("submitBtn").disabled = true;
         document.getElementById("emailInput").style.backgroundColor = '#ec4c56';
-        document.getElementById("errorMessage").innerText = "Email does not exist!";
+        document.getElementById("errorMessage").innerText = "Email must be a valid DLSU email account.";
     }
 });
 
+document.getElementById("aboutPage").addEventListener("click", (e) => {
+    window.location.href = "/about.html"
+});
+
+// function that runs every 5 seconds
+setInterval(() => {
+    updateAll();
+}, 5000);

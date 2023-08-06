@@ -1,17 +1,12 @@
 function login() {
     var email = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var rememberMe = false; 
-    var rememberChecked = document.getElementById("rememberMe");
+    var rememberMe = document.getElementById("rememberMe").value;
 
-    if(rememberChecked.checked)
-    {
-        rememberMe = true;
-    }
     fetch('/login?' + new URLSearchParams({
         email: email,
         password: password,    
-        rememberMe: rememberMe ? 1 : 0
+        rememberMe: rememberMe
     }), {method: 'GET'})
         .then(res => res.json())
         .then(data => {

@@ -31,6 +31,22 @@
             </ul>
             </section>
         </main>
+        <span id="goBack">Back</span>
+        <script>
+            function goBack() {
+                fetch('/get/role', {method: 'GET'})
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.role == "technician") {
+                            window.location.href = "reservation-technician"
+                        }
+                        else if (data.role == "student") {
+                            window.location.href = "reservation-student"
+                        }
+                    })
+            }
+            document.getElementById("goBack").addEventListener("click", goBack)
+        </script>
     </div>
 </body>
 </html>

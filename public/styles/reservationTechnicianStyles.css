@@ -721,3 +721,8 @@ aside {
     border-radius: 13px;
     text-align: center;
 }
+
+#aboutPage:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}

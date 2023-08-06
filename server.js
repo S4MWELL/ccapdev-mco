@@ -34,20 +34,19 @@ function getPhilippineStandardTime() {
 }
 
 //CONNECT TO DATABASE
-app.listen(3000, () =>{
+app.listen(process.env.PORT, () =>{
     console.log('Hello! Listening at http://localhost:3000')
 })
 
-mongoose.connect('mongodb://127.0.0.1:27017/labdb')
+mongoose.connect('mongodb+srv://render:fourpointzero@ccapdevmco.rwx4fju.mongodb.net/LabReservation?retryWrites=true&w=majority')
     .then(() => console.log('Successfully Connected to Database.'))
 
 //IMPORT MODELS & COLLECTIONS
 const User = require('./models/User')
-const Reservation = require('./models/Reservation')
+const Reservation = require('./models/Reservation');
+const { stringify } = require('querystring');
 
-//POPULATE DB WITH SAMPLE DATA
-var users_sample_json = require(__dirname + '/models/sample_data/labdb.users.json')
-User.insertMany(users_sample_json)
+
 
 app.use(session({
     secret: 'walter',
@@ -121,7 +120,12 @@ app.get('/reservation-student', async (req, res) =>{
         currentUser = await User.findOne({email: req.session.user});
 
         if (currentUser.role === 'student') {
-            res.sendFile(__dirname + '/public/reservations.html');
+            if(req.query.length > 0) {
+                res.sendFile(__dirname + '/public/reservations.html?' + JSON.stringify(req.query))
+            }
+            else {
+                res.sendFile(__dirname + '/public/reservations.html')
+            }
         } else if (currentUser.role === 'technician') {
             res.redirect('/');
         }
@@ -136,9 +140,14 @@ app.get('/reservation-technician', async (req, res) =>{
     }
     else {
         currentUser = await User.findOne({email: req.session.user});
-
+        
         if (currentUser.role === 'technician') {
-            res.sendFile(__dirname + '/public/reservationsTechnician.html')
+            if(req.query.length > 0) {
+                res.sendFile(__dirname + '/public/reservationsTechnician.html?' + JSON.stringify(req.query))
+            }
+            else {
+                res.sendFile(__dirname + '/public/reservationsTechnician.html')
+            }
         } else if (currentUser.role === 'student') {
             res.redirect('/');
         }
@@ -336,20 +345,21 @@ app.get('/get/reservations/reserver', async (req, res) => {
     var seat = req.query.seat
     var slot = req.query.slot
 
-    const reservation = await Reservation.find({date: date, lab: lab, seat: seat, slots: slot})
+    const reservation = await Reservation.findOne({date: date, lab: lab, seat: seat, slots: slot})
     
+    console.log(reservation)
 
-    if(reservation[0].isAnonymous == true) {
+    if(reservation.isAnonymous == true) {
         res.json({name: 'anonymous', email: ''})
     }
     else {
-        const reserver = await User.find({email: reservation[0].email})
+        const reserver = await User.findOne({email: reservation.email})
 
-        if(reserver[0].role == "technician") {
-            res.json({name: 'Walk-in Student', email: ''})
+        if(reserver != null) {
+            res.json({name: reserver.name, email: reserver.email})
         }
         else {
-            res.json(reserver[0])
+            res.json({name: '', email: reservation.email})
         }
     }
     

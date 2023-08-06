@@ -1,4 +1,5 @@
 let searchUser = "";
+let currentRole = "";
 let dateToday = new Date();
 let year = String(dateToday.getFullYear());
 let month = dateToday.getMonth() < 10 ? "0" + String(dateToday.getMonth() + 1): String(dateToday.getMonth() + 1);
@@ -13,11 +14,18 @@ fetch('/get/searchuser', {method: 'GET'})
 
 function setUser(user) {
     searchUser = user;
-    
-    if(searchUser == "") {
-        window.location.href = '/';
-    }
 
+    fetch('/get/role', {method: 'GET'})
+        .then(res => res.json())
+        .then(data => {
+            setRole(data.role)
+        })
+    
+}
+
+function setRole(user) {
+    currentRole = user;
+    console.log("role: " + currentRole)
     setProfilePicture();
     setProfileDetails();
     updateReservationList();
@@ -74,6 +82,24 @@ function updateReservationList() {
                 listItem.appendChild(slots)
 
                 listItem.style.marginBottom = "10px";
+
+                listItem.style.cursor = "pointer";
+
+                const queryParams = new URLSearchParams({
+                    date: String(reservation.date).substring(0, 10),
+                    lab: String(reservation.lab)
+                });
+
+                if(currentRole == "student") {
+                    listItem.onclick = function () {
+                        window.location.href = "/reservation-student?" + queryParams.toString();
+                    }
+                }
+                else if(currentRole == "technician") {
+                    listItem.onclick = function () {
+                        window.location.href = "/reservation-technician?" + queryParams.toString();
+                    }
+                }
 
                 document.getElementById("reservationsContainer").append(listItem);
                 

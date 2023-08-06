@@ -1,4 +1,5 @@
 let currentUser = "";
+let currentRole = "";
 let dateToday = new Date();
 let year = String(dateToday.getFullYear());
 let month = dateToday.getMonth() < 10 ? "0" + String(dateToday.getMonth() + 1): String(dateToday.getMonth() + 1);
@@ -14,11 +15,18 @@ fetch('/get/currentuser', {method: 'GET'})
 
 function setUser(user) {
     currentUser = user;
-    
-    if(currentUser == "") {
-        window.location.href = '/';
-    }
 
+    fetch('/get/role', {method: 'GET'})
+        .then(res => res.json())
+        .then(data => {
+            setRole(data.role)
+        })
+    
+}
+
+function setRole(user) {
+    currentRole = user;
+    console.log("role: " + currentRole)
     setProfilePicture();
     setProfileDetails();
     document.getElementById("nameAndDescriptionForm").setAttribute("action", "/update/user/profile?email=" + currentUser)
@@ -102,11 +110,33 @@ function updateReservationList() {
 
                 listItem.style.marginBottom = "10px";
 
+                listItem.style.cursor = "pointer";
+
+                const queryParams = new URLSearchParams({
+                    date: String(reservation.date).substring(0, 10),
+                    lab: String(reservation.lab)
+                });
+
+                if(currentRole == "student") {
+                    listItem.onclick = function () {
+                        window.location.href = "/reservation-student?" + queryParams.toString();
+                    }
+                }
+                else if(currentRole == "technician") {
+                    listItem.onclick = function () {
+                        window.location.href = "/reservation-technician?" + queryParams.toString();
+                    }
+                }
+
                 document.getElementById("reservationsContainer").append(listItem);
             })
         })
 }
 
+function goToLink(address) {
+    window.location.href = address;
+    window.alert("hi");
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     const editPfpBtn = document.getElementById("editPfp");
