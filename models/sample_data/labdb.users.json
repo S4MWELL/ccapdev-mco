@@ -1,0 +1,40 @@
+[{
+"email": "aaron_jardenil@dlsu.edu.ph",
+  "password": "315",
+  "name": "Aaron Jardenil",
+  "description": "Former Philadelphia police officer who works for Gus—and, on occasion, Saul—as a private investigator, head of security, cleaner, and hit man.",
+  "role": "student",
+  "__v": 0
+},
+{
+  "email": "christian_asturiano@dlsu.edu.ph",
+  "password": "607",
+  "name": "Christian Asturiano",
+  "description": "Overqualified high school chemistry teacher from Albuquerque, New Mexico.",
+  "role": "student",
+  "__v": 0
+},
+{
+  "email": "kyle_francisco@dlsu.edu.ph",
+  "password": "1122",
+  "name": "Kyle Francisco",
+  "description": "Sleazy and unscrupulous lawyer who acts as Walter and Jesse's attorney and provides some of the series' comic relief.",
+  "role": "student",
+  "__v": 0
+},
+{
+  "email": "samuel_cheng@dlsu.edu.ph",
+  "password": "1025",
+  "name": "Samuel Cheng",
+  "description": "former chemist, manufacturer, and distributor who worked in Albuquerque, New Mexico, currently residing in Haines, Alaska.",
+  "role": "student",
+  "__v": 0
+},
+{
+  "email": "rafael_calalang@dlsu.edu.ph",
+  "password": "0827",
+  "name": "Rafael Calalang",
+  "description": "Walt and Skyler's brother-in-law and Marie's husband, who works as a U.S. Drug Enforcement Administration (DEA) agent.",
+  "role": "technician",
+  "__v": 0
+}]

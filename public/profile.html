@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Profile</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles/profileStyles.css">
+        <script src="scripts/profileScript.js" defer></script>
+    </head>
+
+    <body>
+        <div>
+            <div>
+                <div id="imgContainer"><img id="pp" src="images/default.png"></div>
+                <div id="profileEmail"></div>
+                <div id="profileName"></div>
+            </div>
+
+            <div id="profileDescription"></div><br>
+            <div id="reservations">
+                Reservations:
+                <div id="reservationsContainer">
+                    
+                </div>
+            </div>
+            <div id="editPfp" class="btn">Edit Profile Picture</div>
+          
+
+            <form  id="profilePictureForm" method="post" enctype="multipart/form-data" action="/submit/profilepicture">
+                <label for="file">Profile Picture (JPG only):<br></label>
+                <input type="file" id="file" name="file" accept=".jpg" required>
+            
+                <br>
+            
+                <input type="submit" class="smolBtn" action="/submit/profilepicture">   
+            </form>
+
+            <div id="editName" class="btn">Edit Name and Description</div>
+            <form id="nameAndDescriptionForm" method="patch" action="">
+                <label for="name">Name:<br></label>
+                <input type="text" id="name" required>
+            
+                <br>
+            
+                <label for="description">Description:<br></label>
+                <textarea id="description" rows="4" required></textarea>
+            
+                <br>
+            
+                <div class="smolBtn" onclick="updateProfileDetails()">Update Profile</div>
+            </form>
+            
+            <div id="reservationsContainer">
+                <ul id="reservations">
+                </ul>
+            </div>
+        </div>
+        <a id="backBtn" onclick="goBack()">Back</a>
+        <a id="signOutLink" onclick="signout()">Sign Out</a>
+
+        <div id="delCont">
+            <div id="danger">DANGER</div>
+            <div id="dangerBtn" class="btn" onclick="deleteAccount()">Delete Account</div>
+        </div>
+    </body>
+</html>
+
+

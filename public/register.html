@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Lab Reservation</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles/indexStyles.css">
+        <script src="scripts/registerScript.js"></script>
+    </head>
+
+    <body>
+        <header id="header"><span id="computer_icon"></span>Lab Reservation</header>
+
+        <div id="formContainer">
+            <div id="form">
+                <div>
+                    <label for="username">Email</label>
+                    <input id="username" name="email" type="text">
+                </div>
+                <div>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="text">
+                </div>
+                <div id="accountType">
+                    <label for="student">Student</label>
+                    <input id="student" type="radio" name="inputName">
+                    <label for="technician">Lab Technician</label>
+                    <input id="technician" type="radio" name="inputName">
+                </div>
+                <div id="submitContainer">
+                    <div id="submit" onclick="register()">Register</div>
+                </div>
+                <h3 id="errorMessage"></h3>
+                <div id="loginLink">Already have an account?<a href="login.html"><span id="loginBtn">Login</span></a></div>
+            </div>
+        </div>
+    </body>
+</html>
+
+

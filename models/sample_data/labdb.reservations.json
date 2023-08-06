@@ -1,0 +1,84 @@
+[{
+    "email": "christian_asturiano@dlsu.edu.ph",
+    "lab": "3",
+    "seat": "2",
+    "date": {
+      "$date": "2023-07-25T00:00:00.000Z"
+    },
+    "requested": {
+      "$date": "2023-07-25T15:07:06.679Z"
+    },
+    "slots": [
+      "1230",
+      "1300"
+    ],
+    "isAnonymous": false,
+    "__v": 0
+  },
+  {
+    "email": "rafael_calalang@dlsu.edu.ph",
+    "lab": "1",
+    "seat": "4",
+    "date": {
+      "$date": "2023-07-25T00:00:00.000Z"
+    },
+    "requested": {
+      "$date": "2023-07-25T15:13:31.321Z"
+    },
+    "slots": [
+      "1600",
+      "1630"
+    ],
+    "isAnonymous": false,
+    "__v": 0
+  },
+  {
+    "email": "rafael_calalang@dlsu.edu.ph",
+    "lab": "1",
+    "seat": "6",
+    "date": {
+      "$date": "2023-07-25T00:00:00.000Z"
+    },
+    "requested": {
+      "$date": "2023-07-25T14:45:13.016Z"
+    },
+    "slots": [
+      "1500"
+    ],
+    "isAnonymous": false,
+    "__v": 0
+  },
+  {
+    "email": "aaron_jardenil@dlsu.edu.ph",
+    "lab": "1",
+    "seat": "1",
+    "date": {
+      "$date": "2023-07-25T00:00:00.000Z"
+    },
+    "requested": {
+      "$date": "2023-07-25T15:44:06.643Z"
+    },
+    "slots": [
+      "1030",
+      "1100"
+    ],
+    "isAnonymous": false,
+    "__v": 0
+  },
+  {
+    "email": "kyle_francisco@dlsu.edu.ph",
+    "lab": "3",
+    "seat": "1",
+    "date": {
+      "$date": "2023-07-26T00:00:00.000Z"
+    },
+    "requested": {
+      "$date": "2023-07-25T15:45:27.059Z"
+    },
+    "slots": [
+      "1100",
+      "1130"
+    ],
+    "isAnonymous": false,
+    "__v": 0
+  }]

@@ -1,0 +1,77 @@
+@import "styles.css";
+
+body {
+    padding: 1em;
+    font-size: 1.3rem;
+    background-color: var(--bgColor);
+    font-style: var(--mainFont);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+  
+  header {
+    /* background-color: #333; */
+    /* color: black; */
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  h1, h2 {
+    margin-bottom: 1rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  #mainContainer{
+    display: flex;
+    justify-content: space-between;
+    height: 34rem;
+    width: 25rem;
+
+    background-color: var(--bgColordark);
+    flex-direction: column;
+    border-radius: 5%;
+    font-size: 1.7rem;
+  }
+
+#mainContainer a{
+  text-decoration: none;
+  color: var(--textColor);
+}
+
+.item {
+  /* underline */
+  text-decoration: underline;
+}
+
+.item:hover {
+  /* underline */
+  text-decoration: underline;
+  font-weight: bolder;
+  scale: 1.01;
+}

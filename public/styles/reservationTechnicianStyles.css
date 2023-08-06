@@ -1,0 +1,723 @@
+@import "styles.css";
+
+#main-asideContainer {
+    font-size: 1vw;
+    display: flex;
+    background-color: var(--bgColor);
+}
+
+body {
+    background-color: var(--bgColor);
+}
+
+main {
+    flex: 3;
+    background-color: var(--bgColor);
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.modalBackdrop{
+    /* div that makes the entire page darker */
+    position: fixed;
+    /* top: 0;
+    left: 0; */
+    width: 150%;
+    height: 150%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+/* make #searchDialog appear in the middle of main */
+#searchDialog {
+    display: none;
+    flex-direction: column;
+    margin: auto;
+    /* transform: translate(-50%, -50%); */
+    width: 50rem;
+    height: fit-content;
+    z-index: 1;
+
+    background-color: var(--bgColor);
+    border-radius: 1em;
+    border-width: 3px;
+    border-color: black;
+    color: var(--textColor);
+
+    /* center everything */
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-size: 1.5rem;
+    padding: 1em;
+}
+
+#dialogBtns {
+    width: 100%;
+}
+
+#searchDialogLabel {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+}
+#search {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    margin-top: 2em;
+    line-height: 2em;
+    color: black;
+    background-color: var(--textColor);
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3em;
+}
+#closeSearchDialog {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    margin-top: 0.5em;
+    line-height: 2em;
+    color: black;
+    background-color: var(--textColor);
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3em;
+}
+
+#search:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#closeSearchDialog:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.dialogInputs {
+    font-size: 1.5rem;
+}
+
+
+
+#searchSelect {
+    display: flex;
+    gap: 2rem;
+}
+
+header {
+    margin: 1em;
+    flex: 1;
+}
+
+#leftheader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#signout:hover {
+    font-weight: 1000;
+    cursor: pointer;
+}
+
+#pp {
+    display: block;
+    margin: 0.5em;
+    object-fit: cover;
+    width: 110px;
+    height:110px;
+
+    
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+}
+
+#searchBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#search_icon {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('icons/search_icon.png');
+    background-size: cover;
+}
+
+#searchBtn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#dateContainer {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+#labView {
+    flex: 6;
+    display: flex;
+    background-color: var(--bgColordark);
+    border-radius: 1em;
+    border-width: 1px;
+    border-style:solid;
+    border-color: var(--bgColordark);
+    padding: 1em;
+}
+
+#tableContainer {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+}
+
+#lab {
+    font-size: 2vw;
+    text-align: center;
+    margin-bottom: 0.1em;
+}
+
+#navigatorContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.navigator {
+    font-size: 1.4vw;
+    font-weight: bold;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+}
+
+tr {
+    margin: 1em;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+th{
+    border-radius: 1em;
+   
+    font-size: 1vw;
+    height: 65px;    
+    width: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.1em;
+    padding: 0.5;
+}
+
+.unReserved {
+    background-color: green;
+}
+
+.reserved {
+    background-color: #69040e;
+}
+
+.reservedByMe {
+    background-color: yellow;
+}
+
+.selected {
+    background-color: #550e9c;
+}
+
+td {
+    border-radius: 1em;
+    border-style: solid;
+ 
+    height: 65px;    
+    width: 65px;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.1em;
+}
+
+/* make td a little bigger when its hovered */
+td:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+aside {
+    flex: 1;
+    padding: 1em;
+    background-color: var(--bgColordark);
+    height: 150vh;
+}
+
+#listHeader {
+    font-weight: bold;
+    font-size: 1.3vw;
+    margin-bottom: 0.4em;
+}
+
+#list {
+    overflow-y: scroll;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#submitBtn:hover:not([disabled]) {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    margin-top: 0.5rem;
+    line-height: 2em;
+    color: black;
+    background-color: var(--textColor);
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3em;
+    cursor: pointer;
+    transform: scale(1.1);
+    font-family: var(--mainFont);
+    font-size: 1.3rem;
+}
+
+#submitBtn:not([disabled]) {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    margin-top: 0.5rem;
+    line-height: 2em;
+    color: black;
+    background-color: var(--textColor);
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3em;
+    font-family: var(--mainFont);
+    font-size: 1.3rem;
+}
+
+
+#submitBtn:disabled {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    margin-top: 0.5rem;
+    line-height: 2em;
+    color: black;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3em;
+    background-color: var(--bgColor);
+    border-color: var(--textColor);
+    color: var(--textColor);
+    cursor: not-allowed;
+    font-size: 1.3rem;
+    font-family: var(--mainFont);
+}
+
+#profile {
+    display:flex;
+    color: var(--textColor);
+    padding-left: 10px;
+}
+/* make profile bigger when hovered */
+#profile:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#rightheader {
+    display: flex;
+    margin-left: 18%;
+    font-size: 4vw;
+    font-weight: bold;
+    align-items: center;
+    gap: 30px;
+}
+
+#reservationInstruction {
+    font-size: 1vw;
+    font-style: italic;
+    text-align: center;
+}
+
+#instruction {
+    font-size: 1vw;
+    font-style: italic;
+    margin-bottom: 1em;
+}
+
+#timeslotInstruction {
+    font-size: 1vw;
+    font-style: italic;
+    text-align: center;
+}
+
+#labNum {
+    text-decoration: underline;
+}
+
+#profileicon {
+    display: inline-block;
+    margin-top: 0.22em;
+    width: 24px;
+    height: 24px;
+    background-image: url('icons/profileicon.png');
+    background-size: cover;
+}
+
+#left_arrow {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('icons/left_arrow.png');
+    background-size: cover;
+}
+
+#right_arrow {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('icons/right_arrow.png');
+    background-size: cover;
+}
+
+/* make left_arrow a little bit bigger when hovered */
+#left_arrow:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#right_arrow:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#computer_icon {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background-image: url('icons/computer_icon.png');
+    background-size: cover;
+}
+
+#dateInput {
+    height: 25px;
+}
+
+#steps {
+    display: flex;
+    justify-content: center;
+    font-size: 1vw;
+}
+
+#lab_reservation {
+    font-size: 3vw;
+}
+
+/* reserver div that is in the middle of the screen 40 x 40 px (absolute position)*/
+#reserverBox {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    padding: 50px;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+    background-color: var(--bgColor);
+    outline: 2px solid black;
+    background-size: cover;
+    border-radius: 10px;
+    display: none;
+    visibility: visible;
+    flex-direction: column;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: space-around;
+    gap: 25px;
+    font-size: 1.2rem;
+
+}
+
+#closeBtn {
+    width: 30%;
+    text-align: center;
+    /* margin: auto; */
+    line-height: 2em;
+    color: black;
+    background-color: var(--textColor);
+    border-color: black;
+    border-width: 1px;
+    border-style:solid;
+    border-radius: 3em;
+}
+
+#closeBtn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#dialogueBox {
+    margin-top: 20px;
+    padding: 7px;
+    width: 100%;
+    /* height: 20rem; */
+    min-height: fit-content;
+    background-color: var(--bgColor);
+    outline: 1px solid black;
+    border-radius: 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.dialogueBoxBtns {
+    width: 100px;
+    text-align: center;
+    margin: 0.1rem;
+    line-height: 2em;
+    color: black;
+    background-color: var(--textColor);
+    border-color: black;
+    border-width: 1px;
+    border-style:solid;
+    border-radius: 3em;
+    font-size: 1.2rem;
+    user-select: none;
+}
+
+.dialogueBoxBtns:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#dialogueBoxBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+#btnsDiv {
+    display: flex;
+    gap: 8px;
+}
+
+#submitDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#submitDiv > label {
+    margin-top: 1em;
+}
+
+.reservedSlot {
+    /* add underline to text */
+    text-decoration: underline;
+}
+
+.reservedSlot:hover {
+    cursor: pointer;
+}
+
+.reservedSlotUser {
+    /* add underline to text */
+    /* make color green */
+
+    text-decoration: underline;
+    color: green;
+    margin-top: 1rem;
+}
+
+.unhighlighted {
+    background-color: var(--bgColor);
+    cursor: pointer;
+    border-radius: 0.5em;
+    border-color: var(--textColor);
+}
+
+.unhighlighted:hover {
+    /* background-color: var(--textColor); */
+    cursor: pointer;
+    border-radius: 0.5em;
+    border-color: var(--textColor);
+    text-decoration: underline;
+}
+
+.highlighted {
+    background-color: var(--textColor);
+    border-radius: 0.5em;
+    border-color: var(--textColor);
+}
+
+#editReservationsPopUp {
+    position: absolute;
+    top: 50%;
+    left: 32%;
+    /* transform: translate(-50%, -50%); */
+    color: var(--textColor);
+    margin: center;
+    display: none;
+    text-align: center;
+    flex-direction: column;
+    width: 20rem;
+    padding: 0.5em;
+    border-width: 2px;
+    border-color: black;
+    background-color: var(--bgColordark);
+    border-color: var(--bgColordark);
+    border-radius: 0.5em;
+    font-size: 1.2rem;
+    gap: 0.5rem;
+}
+
+#tsCont {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+}
+
+.btn {
+    width: 100px;
+    text-align: center;
+    margin-top: 0.7rem;
+    line-height: 2em;
+    color: black;
+    background-color: var(--textColor);
+    border-color: black;
+    border-width: 1px;
+    border-style:solid;
+    border-radius: 3em;
+    font-size: 1.2rem;
+    user-select: none;
+}
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#labSelect {
+    margin: 0.5rem;
+    width: 5rem;
+    height: 2em;
+    font-size: 1.2rem;
+}
+
+#editBtns {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#navbar {
+    width: 100%;
+    display: flex;
+    background-color: var(--bgColordark);
+    padding: 0.5em;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+    border-bottom: 2px solid black;
+    height:9rem;
+}
+
+#ppCont {
+    display: flex;
+    align-items: center;
+}
+
+#dateLabel {
+    font-size: 2vw;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#editItems {
+    margin-top: 2rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchResult {
+    border-radius: 0.5em;
+    background-color: var(--bgColor);
+    border-color: var(--textColor);
+    border-width: 2px;
+    border-style: solid;
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.searchResult:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+.seatResult {
+    border-radius: 0.5em;
+    background-color: var(--bgColor);
+    border-color: var(--textColor);
+    border-width: 2px;
+    border-style: solid;
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.someReserver {
+    color: orange;
+    text-decoration: underline;
+}
+
+#technicianAnon {
+    display:block;
+}
+
+#submitInstructions {
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 1.3rem;
+}
+
+#emailInput {
+    margin: 1rem;
+    width: 26rem;
+    height: 2rem;
+    font-size: 1.3rem;
+    border-radius: 13px;
+    text-align: center;
+}

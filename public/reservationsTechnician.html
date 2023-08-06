@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Technician View</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/reservationTechnicianStyles.css">
+    <script src="scripts/reservationsScriptTechnician.js" defer></script>
+</head>
+
+<body>
+
+    <div id="navbar">
+        <div id="ppCont">
+            <div id="imgCont"><img id="pp" src="images/default.png"></div>
+            <div id="leftheader"><a id="profile" onclick="goToProfile()"><span id=profileicon ></span>Profile</a></div>
+        </div>
+        <div id="searchBtn"><span id="search_icon"></span>Search</div>
+        <div id="signout" onclick="signout()">Sign Out</div>
+    </div>
+
+    <div id="main-asideContainer">
+    <main>
+        <header>
+            <div id="rightheader">
+                <span id="computer_icon"></span>
+                Lab Reservation
+            </div>
+            <div id="reservationInstruction">Make a reservation by clicking on slots to select them, then clicking on submit to confirm the reservation</div>
+            
+        </header>
+
+        <div id="dateLabel">Date:</div>
+        <div id="dateContainer">
+            <input id="dateInput" type="date">
+        </div>
+
+        <div id="labView">
+            <div id="reserverBox">
+                This seat is reserved by:
+                <div id="reserverName" onclick="searchProfile()"></div>
+                <div id="reserverEmail"></div>
+                <div id="closeBtn">Close</div>
+            </div>
+            <div id="tableContainer">
+                <div>
+                    <div id="lab">Lab <span id="labNum"> 1</span>
+                        <div id="navigatorContainer">
+                            <select id="labSelect">
+                                <option value="1">Lab 1</option>
+                                <option value="2">Lab 2</option>
+                                <option value="3">Lab 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="timeslotInstruction">Times shown below are start-times of timeslots</div>
+
+                </div>
+                <table>
+                    <tr>
+                        <th>Seats</th>
+                        <th>8:00</th>
+                        <th>8:30</th>
+                        <th>9:00</th>
+                        <th>9:30</th>
+                        <th>10:00</th>
+                        <th>10:30</th>
+                        <th>11:00</th>
+                        <th>11:30</th>
+                        <th>12:00</th>
+                        <th>12:30</th>
+                        <th>13:00</th>
+                        <th>13:30</th>
+                        <th>14:00</th>
+                        <th>14:30</th>
+                        <th>15:00</th>
+                        <th>15:30</th>
+                        <th>16:00</th>
+                        <th>16:30</th>
+                    </tr>
+                    <tr name = "1">
+                        <th class="seat">Seat 1</td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                    </tr>
+                    <tr name = "2">
+                        <th class="seat">Seat 2</td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                    </tr>
+                    <tr name = "3">
+                        <th class="seat">Seat 3</td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                    </tr>
+                    <tr name = "4">
+                        <th class="seat">Seat 4</td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                    </tr>
+                    <tr name = "5">
+                        <th class="seat">Seat 5</td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                    </tr>
+                    <tr name = "6">
+                        <th class="seat">Seat 6</td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                    </tr>
+                    <tr name = "7">
+                        <th class="seat">Seat 7</td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                    </tr>
+                    <tr name = "8">
+                        <th class="seat">Seat 8</td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                        <td class="unReserved"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="choices">
+            
+                <div id="timeslots">
+                </div>
+            </div>
+        </div>
+
+        <div id="submitDiv">
+            <span id="submitInstructions">Please enter the email of the walk-in student you are reserving for:</span>
+            <br>
+            <p id="errorMessage"></p>
+            <!-- text input -->
+            <input type="text" id="emailInput" name="emailInput" required>
+            <button id="submitBtn">Submit</button>
+            <label id="technicianAnon" for="reserve-anonymously">
+                <input type="checkbox" id="anonymous" name="reservation">
+                Reserve Anonymously
+            </label>
+        </div>
+
+        
+    </main> 
+    <dialog id="searchDialog">
+        <div id="searchDialogLabel"><h2>Search</h2></div>
+        <div id="searchSelect">
+            <label for="searchTypeUser">
+            <input type="radio" name="searchType" id="searchTypeUser" value="user" checked> Search for User
+            </label>
+            <label for="searchTypeTimeslot">
+            <input type="radio" name="searchType" id="searchTypeTimeslot" value="timeslot"> Search for Available Seats
+            </label>
+        </div>
+        <div id="userSearchInputDiv" class="dialogInputs">
+            <label for="searchUserInput">Search by name:</label>
+            <input type="text" id="searchInput" name="searchUserInput" required>
+        </div>
+        <div id="timeSlotSearchInputDiv" class="dialogInputs" style="display:none;">
+            <label for="searchSlotInput">Search by date, timeslot and lab:</label>
+            <input type="date" id="searchSlotInput" name="searchSlotInput" required>
+            <!-- make dropdown box for all the timeslots (8:00 to 16:30) -->
+            <select id="timeSlotSearchInput" name="timeSlotSearchInput">
+                <option value="800">8:00</option>
+                <option value="830">8:30</option>
+                <option value="900">9:00</option>
+                <option value="930">9:30</option>
+                <option value="1000">10:00</option>
+                <option value="1030">10:30</option>
+                <option value="1100">11:00</option>
+                <option value="1130">11:30</option>
+                <option value="1200">12:00</option>
+                <option value="1230">12:30</option>
+                <option value="1300">13:00</option>
+                <option value="1330">13:30</option>
+                <option value="1400">14:00</option>
+                <option value="1430">14:30</option>
+                <option value="1500">15:00</option>
+                <option value="1530">15:30</option>
+                <option value="1600">16:00</option>
+                <option value="1630">16:30</option>
+            </select>
+
+            <select id="searchLabSelect">
+                <option value="1">Lab 1</option>
+                <option value="2">Lab 2</option>
+                <option value="3">Lab 3</option>
+            </select>
+        </div>
+
+        <div id=dialogBtns>
+            <div id="search">Search</div>
+            <div id="closeSearchDialog">Close</div>
+        </div>
+        <div id="resultsContainer">
+
+        </div>
+    </dialog>
+    <aside>
+        <div id="listHeader">Reservations: </div>
+        <div id="instruction">Click on a reservation to edit it</div>
+        <div id="list">
+
+        </div>
+        <div id="dialogueBox">
+            <div id="dialogueBoxHeader">Selected Reservation: </div>
+            <div id="dialogueBoxBody">
+                <div id="dialogueBoxBodyText">#dialogueBoxBodyText</div>
+                <div id="btnsDiv">
+                    <div id="dialogueBoxEdit" class="dialogueBoxBtns">Edit</div>
+                    <div id="dialogueBoxDelete" class="dialogueBoxBtns">Delete</div>
+                </div>
+            </div>
+        </div>
+        <div id="editItems">
+            Please select your new seats then confirm, or cancel
+            <div id="editBtns">
+                <div id="confirmEditBtn" class="btn">Confirm</div>
+                <div id="cancelEditBtn" class="btn">Cancel</div>
+            </div>
+        </div>
+    </aside>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+:root {
+    --textColor: #ec4c56;
+    --bgColor: #242933;
+    --bgColordark: #1c222d;
+    --mainFont: "Cascadia Mono";
+    --textColor2: #596172;
+}
+html {
+    color: var(--textColor);
+    font-family: var(--mainFont);
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: 'Cascadia Mono';
+    src: url('CascadiaMono.ttf') format('truetype');
+  }
+
+  a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer,input[type="file"] {
+       cursor: pointer;
+}
