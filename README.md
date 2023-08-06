@@ -1,3 +1,6 @@
+## DEPLOYED WEBSITE LINK
+https://lab-reservation-ckoj.onrender.com/
+
 ## INSTRUCTIONS TO RUN LOCALLY
 
 Before attempting to run the application, ensure that node.js and mongodb are installed.
@@ -9,7 +12,7 @@ To run the program locally:
 3. Type "npm start" in the terminal
 4. Navigate to http://localhost:3000 in a browser, this should load the home page of the app
 
-## Sample Accounts
+## Sample Accounts (for both local and deployed)
 
 Format:\
 email\
